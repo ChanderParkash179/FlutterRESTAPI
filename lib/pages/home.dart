@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) {
                             return Container(
                               child: Card(
-                                elevation: 0,
+                                // elevation: 0,
                                 color: Colors.transparent,
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
