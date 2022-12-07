@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api/pages/home.dart';
+import 'package:flutter_api/pages/photos.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,13 +18,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         textTheme: TextTheme(
-          bodyText2: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.normal
-          ),
+          bodyText2:
+              TextStyle(color: Colors.white, fontWeight: FontWeight.normal),
         ),
       ),
-      home: HomePage(),
+      home: PhotosPage(),
     );
   }
 }

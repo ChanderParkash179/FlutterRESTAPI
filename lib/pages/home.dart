@@ -2,9 +2,8 @@
 
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_api/models/posts.dart';
+import 'package:flutter_api/models/postsModel.dart';
 import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
@@ -18,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   List<PostModel> postList = [];
 
   Future<List<PostModel>> getPostUri() async {
+    await Future.delayed(Duration(seconds: 5));
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
     var data = jsonDecode(response.body.toString());
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('REST API\'S'),
+          title: Text('POSTS API\'S'),
           backgroundColor: Colors.transparent,
           flexibleSpace: Container(
             decoration: appBarDecoration(context),
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) {
                             return Container(
                               child: Card(
-                                // elevation: 0,
+                                elevation: 0,
                                 color: Colors.transparent,
                                 child: Padding(
                                   padding: const EdgeInsets.all(16.0),
@@ -116,7 +116,9 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           height: 50,
                           width: 50,
-                          child: CircularProgressIndicator(),
+                          child: CircularProgressIndicator(
+                            color: Colors.deepOrangeAccent,
+                          ),
                         ),
                       );
                     }
